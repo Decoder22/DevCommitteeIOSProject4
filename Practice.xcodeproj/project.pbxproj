@@ -14,6 +14,15 @@
 		D328823C2159FD43008D16D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D328823A2159FD43008D16D3 /* LaunchScreen.storyboard */; };
 		D32882472159FD43008D16D3 /* PracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32882462159FD43008D16D3 /* PracticeTests.swift */; };
 		D32882522159FD43008D16D3 /* PracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32882512159FD43008D16D3 /* PracticeUITests.swift */; };
+		D3288263215A031B008D16D3 /* AddNewEventStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3288262215A031B008D16D3 /* AddNewEventStoryboard.storyboard */; };
+		D3288265215A0328008D16D3 /* ListEventsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3288264215A0328008D16D3 /* ListEventsStoryboard.storyboard */; };
+		D3288267215A0340008D16D3 /* RestaurantsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3288266215A0340008D16D3 /* RestaurantsStoryboard.storyboard */; };
+		D3288269215A0DC3008D16D3 /* AddNewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3288268215A0DC3008D16D3 /* AddNewEventViewController.swift */; };
+		D328826B215A1A09008D16D3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D328826A215A1A09008D16D3 /* DataManager.swift */; };
+		D328826D215A1B04008D16D3 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = D328826C215A1B04008D16D3 /* Models.swift */; };
+		D328826F215A1BED008D16D3 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D328826E215A1BED008D16D3 /* EventsTableViewController.swift */; };
+		D3288271215A1F92008D16D3 /* RestaurantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3288270215A1F92008D16D3 /* RestaurantsTableViewController.swift */; };
+		D3288275215A224A008D16D3 /* AddRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3288274215A224A008D16D3 /* AddRestaurantViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +56,15 @@
 		D328824D2159FD43008D16D3 /* PracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D32882512159FD43008D16D3 /* PracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeUITests.swift; sourceTree = "<group>"; };
 		D32882532159FD43008D16D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3288262215A031B008D16D3 /* AddNewEventStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewEventStoryboard.storyboard; sourceTree = "<group>"; };
+		D3288264215A0328008D16D3 /* ListEventsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListEventsStoryboard.storyboard; sourceTree = "<group>"; };
+		D3288266215A0340008D16D3 /* RestaurantsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RestaurantsStoryboard.storyboard; sourceTree = "<group>"; };
+		D3288268215A0DC3008D16D3 /* AddNewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewEventViewController.swift; sourceTree = "<group>"; };
+		D328826A215A1A09008D16D3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		D328826C215A1B04008D16D3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		D328826E215A1BED008D16D3 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		D3288270215A1F92008D16D3 /* RestaurantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewController.swift; sourceTree = "<group>"; };
+		D3288274215A224A008D16D3 /* AddRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRestaurantViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +115,17 @@
 		D32882302159FD41008D16D3 /* Practice */ = {
 			isa = PBXGroup;
 			children = (
+				D3288261215A0263008D16D3 /* Restaurants */,
+				D3288260215A0260008D16D3 /* List Events */,
+				D328825F215A025C008D16D3 /* Add New Event */,
 				D32882312159FD41008D16D3 /* AppDelegate.swift */,
 				D32882332159FD41008D16D3 /* ViewController.swift */,
 				D32882352159FD41008D16D3 /* Main.storyboard */,
 				D32882382159FD43008D16D3 /* Assets.xcassets */,
 				D328823A2159FD43008D16D3 /* LaunchScreen.storyboard */,
 				D328823D2159FD43008D16D3 /* Info.plist */,
+				D328826A215A1A09008D16D3 /* DataManager.swift */,
+				D328826C215A1B04008D16D3 /* Models.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -123,6 +146,34 @@
 				D32882532159FD43008D16D3 /* Info.plist */,
 			);
 			path = PracticeUITests;
+			sourceTree = "<group>";
+		};
+		D328825F215A025C008D16D3 /* Add New Event */ = {
+			isa = PBXGroup;
+			children = (
+				D3288262215A031B008D16D3 /* AddNewEventStoryboard.storyboard */,
+				D3288268215A0DC3008D16D3 /* AddNewEventViewController.swift */,
+			);
+			path = "Add New Event";
+			sourceTree = "<group>";
+		};
+		D3288260215A0260008D16D3 /* List Events */ = {
+			isa = PBXGroup;
+			children = (
+				D3288264215A0328008D16D3 /* ListEventsStoryboard.storyboard */,
+				D328826E215A1BED008D16D3 /* EventsTableViewController.swift */,
+			);
+			path = "List Events";
+			sourceTree = "<group>";
+		};
+		D3288261215A0263008D16D3 /* Restaurants */ = {
+			isa = PBXGroup;
+			children = (
+				D3288266215A0340008D16D3 /* RestaurantsStoryboard.storyboard */,
+				D3288270215A1F92008D16D3 /* RestaurantsTableViewController.swift */,
+				D3288274215A224A008D16D3 /* AddRestaurantViewController.swift */,
+			);
+			path = Restaurants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +282,9 @@
 			files = (
 				D328823C2159FD43008D16D3 /* LaunchScreen.storyboard in Resources */,
 				D32882392159FD43008D16D3 /* Assets.xcassets in Resources */,
+				D3288267215A0340008D16D3 /* RestaurantsStoryboard.storyboard in Resources */,
+				D3288263215A031B008D16D3 /* AddNewEventStoryboard.storyboard in Resources */,
+				D3288265215A0328008D16D3 /* ListEventsStoryboard.storyboard in Resources */,
 				D32882372159FD41008D16D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D32882342159FD41008D16D3 /* ViewController.swift in Sources */,
+				D328826B215A1A09008D16D3 /* DataManager.swift in Sources */,
+				D328826F215A1BED008D16D3 /* EventsTableViewController.swift in Sources */,
 				D32882322159FD41008D16D3 /* AppDelegate.swift in Sources */,
+				D3288269215A0DC3008D16D3 /* AddNewEventViewController.swift in Sources */,
+				D328826D215A1B04008D16D3 /* Models.swift in Sources */,
+				D3288271215A1F92008D16D3 /* RestaurantsTableViewController.swift in Sources */,
+				D3288275215A224A008D16D3 /* AddRestaurantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

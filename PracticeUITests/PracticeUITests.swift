@@ -24,11 +24,50 @@ class PracticeUITests: XCTestCase {
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
 
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        app.tabBars.buttons["Add Event"].tap()
+        app.buttons["Take Picture"].tap()
+        app.cells.element(boundBy: 1).tap()
+        app.collectionViews.cells.element(boundBy: 1).tap()
+        let button = app.tabBars.buttons["Add Event"]
+        let exists = NSPredicate(format: "exists == 1")
+        
+        expectation(for: exists, evaluatedWith: button, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        app.textFields["Name of event"].tap()
+        app.textFields["Name of event"].typeText("This is a really cool event!")
+        
+        app.buttons["Add Your Event"].tap()
+        
+        
+        XCTAssert(app.alerts.element.staticTexts["Event was created"].exists)
+        
+
+    }
+    
+    func testNoNameEnteredOnEventCreation(){
+        let app = XCUIApplication()
+        app.tabBars.buttons["Add Event"].tap()
+        app.buttons["Take Picture"].tap()
+        app.cells.element(boundBy: 1).tap()
+        app.collectionViews.cells.element(boundBy: 1).tap()
+        let button = app.tabBars.buttons["Add Event"]
+        let exists = NSPredicate(format: "exists == 1")
+        
+        expectation(for: exists, evaluatedWith: button, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        app.buttons["Add Your Event"].tap()
+        
+        
+        XCTAssert(app.alerts.element.staticTexts["No name entered"].exists)
     }
 
 }
