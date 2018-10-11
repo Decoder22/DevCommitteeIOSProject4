@@ -6,11 +6,13 @@ Welcome to project four. In this project we will be building off of the project 
 3. Write our code for communicating with the database.
 
 
-
-
 The first thing to do is go to firebase.google.com. Click on Get Started, make sure you are logged in, then you can click the Add Project button. Enter the name of your project, accept the options, and create it.
 
+![Picture1.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture1.png)
+
 When you get to the main page for your project, click on the Database option on the side bar, and create a new cloud Firestore database. When it gives you the option, select test mode for now.
+
+![Picture2.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture2.png)
 
 If you are familiar with SQL databases, you may be a bit surprised. If you are not familiar with any databases, you may still be surprised by what you see. Firestore uses a database structure called "Document-Model Database", which saves your data in a large JSON tree made of Collections and Documents.
 
@@ -23,7 +25,11 @@ Try playing around in the Firestore console and get a feel for what can be saved
 
 Now click on the Project Overview button on the left menu, and we will move on to the second part of this tutorial: adding Firestore to our app.
 
+![Picture3.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture3.png)
+
 When you are on this home page, click on the iOS icon so we can set up our app. To find your iOS bundle ID, open up Xcode. On the top of the heirarchy on the left menu in Xcode, you will see a blue icon with the name of your project beside it. Click on that and it will bring you to a page that shows your Bundle Identifier. Copy that and paste it into the Firestore registration page. Name the app if you want to, then click next and download the configuration file. Once it is downloaded, drag it over into your xcode project.
+
+
 
 Now we will install the Firebase Cocoa Pod. Cocoa Pods, or pods, are dependencies that you can add to your app to use code that others have already written for you. We will go over that more in the next tutorial.
 
@@ -35,14 +41,16 @@ To create the pod file to use Firebase, you need to open the terminal app and na
 
 
 These are the commands that were used in this project to get add Firebase to our project.
-
+![Picture5.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture5.png)
 When you type vim, this is what you need to have typed in before you run 'pod install'
 
 Now open up your Finder app and go back to the folder where you saved this project. You will see some new files. Importantly there will be a file that ends in .xcworkspace. This is the new file that you will use to run your app. Click on it and it should open in XCode.
 
-
+![Picture6.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture6.png)
 
 Going back to Firestore's registration, click the next button and look at step 4: 'Add Initialization code'. Click on the file 'AppDelegate.swift' and add that code to the method called 'didFinishLaunchingWithOptions', similar to what Firebase says.
+
+![Picture7.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture7.png)
 
 Run the app and click next on the firebase tutorial and see if it connects.It may take a little longer to build becaue it has to install all of the Google code. If the app crashes, make sure that you have moved the GoogleService-Info.plist into your app. Once it runs, Firebase should tell you that you are connected, and we can now move on to implementing our code.
 
@@ -60,6 +68,7 @@ https://www.youtube.com/watch?v=8zyYjlaEY1k
 
 What you see is that there are multiple people (processes) who need that shared information (the cookies). But since they do not eat the cookies at the same time, the first person is unaware that all of his cookies were gone. That is the simple idea behind a race condition. 
 
+![Picture8.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture8.png)
 
 To fix that, we create this class called an Atomic Counter. What it does is it has an integer that we will use to track progress. The queue.sync() method protects us so that only one process can read/write to it at a time. If some other process needs it, it will have to join the queue. 
 
@@ -68,6 +77,7 @@ To fix that, we create this class called an Atomic Counter. What it does is it h
 Now that we have our AtomicCounter made, lets set up our Database class. Create a new swift file and name it DatabaseManager.swift. Add the code below. The init method simply starts up the connections to Firestore and its Storage feature.
 
 Below we have the create method for events.
+![Picture14.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture14.png)
 
 1. In section 'A', we upload our file to the database. Because we cant save images in Firestore, we must upload them to Firebase Storage. We create a name for our image, then call our method uploadImageWithFilename(). 
 2. When that finishes, we get to section 'B' where we tell Firestore to add a document to the collection called 'Events'. 
@@ -75,7 +85,7 @@ Below we have the create method for events.
 4. In section 'D', we check for an error and give the error to our onDone function. This is a function that is created then given to us to run once we are done.
 
 Below we have the get method for the events.
-
+![Picture15.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture15.png)
 1. In section 'A', we create the request to the database. We look for a collection called 'Events' and get the documents which are returned in querySnapshot as well as an error if there is one. 
 2. In section 'B', we create a for loop to iterate through all of the documents that were returned from the server. We also create an Atomic Counter that will let us know when we have everything downloaded.
 3. In section 'C', we look at a document and try to turn it into an Event class. If you look at the Event model, you see that it has a name and an image. So in our database method, we need to get the name of the event and the image name. 
@@ -87,20 +97,19 @@ Tips:
 1. You do not need to have the collection created before hand. If it does not exist, Google will make it for you.
 2. To know what to upload to the server, look at the Restaurant model. It has everything needed there.
 
-
+![Picture11.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture11.png)
 
 Now we are going to jump back into the DataManager. Look below at the four methods we have. You will see two that add events/restaurants to the database and two that get them from the database. Look at two things. One, we create a private let dbm = DatabaseManager at the top of the file. That creates an instance of our DatabaseManager for us to use. We call it private because we only want to be able to access it in the DataManager class. Two look at how we use the OnDone functions: we have them in the method headers and we use them in the method themselves. 
 
 
-
-
 The third thing that we need to do is to implement the add code into our app. This is pretty easy and looks like this.
 
-
-
+![Picture16.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture16.png)
+![Picture17.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture17.png)
 Lastly, we need to make sure that our code is actually loading the data from Firestore. We will create a simple little loading screen to set this up for us. Create a new View controller in the storyboard, set it as the initial and drag a label onto it so the user knows it is a loading screen. Next create a segue between the loading view controller and the tab bar controller and give it a title of "FinishLoading".
+![Picture12.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture12.png)
 
-
+![Picture13.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture13.png)
 Now create a new ViewController file for it, name it LoadingViewController and add this code. This will cause the app to wait on this loading screen, then call the segue to the rest of the app once it is done loading.
 
 
