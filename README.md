@@ -6,7 +6,7 @@ Welcome to project four. In this project we will be building off of the project 
 3. Write our code for communicating with the database.
 
 
-The first thing to do is go to www.firebase.google.com. Click on Get Started, make sure you are logged in, then you can click the Add Project button. Enter the name of your project, accept the options, and create it.
+The first thing to do is go to https://firebase.google.com/. Click on Get Started, make sure you are logged in, then you can click the Add Project button. Enter the name of your project, accept the options, and create it.
 
 ![Picture1.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture1.png)
 
