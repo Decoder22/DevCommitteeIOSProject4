@@ -77,7 +77,7 @@ To fix that, we create this class called an Atomic Counter. What it does is it h
 Now that we have our AtomicCounter made, lets set up our Database class. Create a new swift file and name it DatabaseManager.swift. Add the code below. The init method simply starts up the connections to Firestore and its Storage feature.
 
 Below we have the create method for events.
-![Picture14.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture14.png)
+![Picture15.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture15.png)
 
 1. In section 'A', we upload our file to the database. Because we cant save images in Firestore, we must upload them to Firebase Storage. We create a name for our image, then call our method uploadImageWithFilename(). 
 2. When that finishes, we get to section 'B' where we tell Firestore to add a document to the collection called 'Events'. 
@@ -85,7 +85,8 @@ Below we have the create method for events.
 4. In section 'D', we check for an error and give the error to our onDone function. This is a function that is created then given to us to run once we are done.
 
 Below we have the get method for the events.
-![Picture15.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture15.png)
+![Picture14.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture14.png)
+
 1. In section 'A', we create the request to the database. We look for a collection called 'Events' and get the documents which are returned in querySnapshot as well as an error if there is one. 
 2. In section 'B', we create a for loop to iterate through all of the documents that were returned from the server. We also create an Atomic Counter that will let us know when we have everything downloaded.
 3. In section 'C', we look at a document and try to turn it into an Event class. If you look at the Event model, you see that it has a name and an image. So in our database method, we need to get the name of the event and the image name. 
@@ -106,10 +107,12 @@ The third thing that we need to do is to implement the add code into our app. Th
 
 ![Picture16.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture16.png)
 ![Picture17.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture17.png)
+
 Lastly, we need to make sure that our code is actually loading the data from Firestore. We will create a simple little loading screen to set this up for us. Create a new View controller in the storyboard, set it as the initial and drag a label onto it so the user knows it is a loading screen. Next create a segue between the loading view controller and the tab bar controller and give it a title of "FinishLoading".
 ![Picture12.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture12.png)
 
 ![Picture13.png](https://github.com/Decoder22/DevCommitteeIOSProject4/blob/master/readmePictures/Picture13.png)
+
 Now create a new ViewController file for it, name it LoadingViewController and add this code. This will cause the app to wait on this loading screen, then call the segue to the rest of the app once it is done loading.
 
 
