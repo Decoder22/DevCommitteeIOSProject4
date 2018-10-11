@@ -21,8 +21,10 @@ class AddRestaurantViewController: UIViewController {
     
 
     @IBAction func addEvent(_ sender: Any) {
-        DataManager.sharedInstance.restaurants.append(Restaurant(name: nameField.text!))
-        nameField.text = ""
+        let rest = Restaurant(name: nameField.text!)
+        DataManager.sharedInstance.addRestaurant(rest: rest) { (err) in
+            self.nameField.text = ""
+        }
     }
     
 

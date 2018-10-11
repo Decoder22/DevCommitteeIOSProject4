@@ -50,11 +50,12 @@ class AddNewEventViewController: UIViewController, UINavigationControllerDelegat
         }
         
         let ev = Event(name: nameField.text!, image: image)
-        DataManager.sharedInstance.events.append(ev)
+        DataManager.sharedInstance.addEvent(event: ev) { (err) in
+            self.nameField.text = ""
+            self.imageView.image = nil
+            self.notify(title: "Success", subtitle: "Event was created")
+        }
         
-        nameField.text = ""
-        imageView.image = nil
-        self.notify(title: "Success", subtitle: "Event was created")
     }
     
     /*
